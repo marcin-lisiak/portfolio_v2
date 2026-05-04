@@ -37,7 +37,7 @@ function App() {
             </h2>
             <div className="grid md:grid-cols-2 gap-12 text-xl font-bold leading-tight uppercase">
               <p className="border-l-8 border-primary pl-6">
-                Jestem Marcinem — frontend developerem i project managerem. Specjalizuję się w budowaniu interfejsów w React i TypeScript, wykorzystując najnowsze narzędzia AI do optymalizacji pracy.
+                Hej! Mam na imię Marcin.<br></br>ROZWIJAM SIĘ JAKO FRONTEND DEVELOPER. ZNAM REACT I TYPESCRIPT W PRAKTYCE, PRACUJĘ Z AI JAKO CODZIENNYM NARZĘDZIEM I WCIĄŻ POSZERZAM WARSZTAT.
               </p>
               <p className="border-l-8 border-accent pl-6">
                 Moje doświadczenie w marketingu i e-commerce pozwala mi patrzeć na projekty nie tylko przez pryzmat kodu, ale przede wszystkim potrzeb użytkownika i celów biznesowych.
@@ -72,7 +72,7 @@ function App() {
 
       <footer className="relative z-10 py-16 border-t-8 border-black bg-black text-white font-mono text-sm uppercase">
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-          <p className="font-bold">© 2025 Marcin Lisiak. NO REASON FOR ROUNDED CORNERS.</p>
+          <p className="font-bold">© 2026 Marcin Lisiak.</p>
           <div className="flex gap-12 font-black">
             <a href="#" className="hover:text-secondary transition-colors underline decoration-4 underline-offset-8">GitHub</a>
             <a href="#" className="hover:text-accent transition-colors underline decoration-4 underline-offset-8">LinkedIn</a>

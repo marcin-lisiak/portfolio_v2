@@ -33,6 +33,22 @@ const projects = [
     link: 'https://giovidoors.pl',
     bg: 'bg-secondary',
     accent: 'bg-primary'
+  },
+  {
+    name: 'Cennik Giovi',
+    desc: 'Automatyzacja wycen włoskich bram szybkobieżnych. Skraca czas ofertowania i eliminuje błędy.',
+    tags: ['Next.js 15', 'TS', 'Tailwind 4'],
+    link: 'https://github.com/marcin-lisiak/Cennik-giovi',
+    bg: 'bg-white',
+    accent: 'bg-accent'
+  },
+  {
+    name: 'Cezab24.pl',
+    desc: 'Platforma E-commerce B2B na Shoperze z autorskimi modyfikacjami JS/CSS i dedykowanym sliderem.',
+    tags: ['E-commerce', 'Shoper', 'Custom JS'],
+    link: 'https://cezab24.pl',
+    bg: 'bg-secondary',
+    accent: 'bg-primary'
   }
 ];
 
