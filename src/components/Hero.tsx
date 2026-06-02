@@ -1,54 +1,84 @@
-import React from 'react';
-import { MoveRight } from 'lucide-react';
+import { Mail, MoveRight, Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const highlights = [
+  { value: 'React', label: 'frontend stack' },
+  { value: 'E-com', label: 'business context' },
+  { value: 'AI', label: 'daily workflow' },
+];
 
 const Hero = () => {
   return (
-    <section id="hero" className="min-h-screen flex items-center pt-32 pb-20 relative overflow-hidden">
-      <div className="container mx-auto px-6 grid md:grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
-
-        <div className="hero-content text-left">
-          <div className="inline-block bg-white text-black px-6 py-2 border-4 border-black font-mono font-black uppercase tracking-widest mb-8 brutalist-shadow">
-            Dostępny do współpracy
-          </div>
-
-          <h1 className="text-7xl md:text-9xl font-black tracking-tighter leading-[0.85] mb-8 uppercase">
-            Marcin<br />
-            <span className="text-accent italic">Lisiak</span>
+    <section id="hero" className="relative overflow-hidden px-5 pb-20 pt-28 md:px-8 md:pb-28 md:pt-36">
+      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <p className="eyebrow">Available for focused frontend work</p>
+          <h1 className="mt-5 max-w-4xl font-display text-5xl font-semibold leading-[1.03] sm:text-6xl md:text-7xl">
+            Marcin Lisiak builds interfaces with product sense.
           </h1>
-
-          <div className="bg-secondary p-4 border-4 border-black mb-8 brutalist-shadow inline-block">
-            <p className="text-2xl md:text-3xl font-black uppercase tracking-tight text-black">
-              Frontend Developer & Project Manager
-            </p>
-          </div>
-
-          <p className="text-xl text-foreground font-medium max-w-xl leading-snug mb-10 border-l-8 border-primary pl-6">
-            Tworzę nowoczesne interfejsy z React & TypeScript, sprawnie operuję narzędziami AI
-            i łączę programowanie z marketingiem oraz e-commerce.
+          <p className="mt-6 max-w-2xl text-lg leading-[1.7] text-[var(--color-muted)] md:text-xl">
+            Frontend developer and project manager working with React, TypeScript, e-commerce, marketing, and AI-assisted delivery.
           </p>
 
-          <div className="flex flex-wrap gap-6">
-            <a href="#projects" className="px-10 py-5 bg-primary text-white border-4 border-black font-black text-xl uppercase tracking-wider flex items-center gap-4 transition-all hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] active:translate-x-0 active:translate-y-0 active:shadow-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              Projekty
-              <MoveRight className="w-6 h-6" />
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href="#projects" className="button button-primary">
+              View projects
+              <MoveRight className="h-5 w-5" aria-hidden="true" />
             </a>
-            <a href="https://www.linkedin.com/in/marcin-lisiak-570691199/" target="_blank" rel="noopener" className="px-10 py-5 bg-white text-black border-4 border-black font-black text-xl uppercase tracking-wider transition-all hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] active:translate-x-0 active:translate-y-0 active:shadow-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              LinkedIn
+            <a href="mailto:marcin@lisiak.pl" className="button button-secondary">
+              <Mail className="h-5 w-5" aria-hidden="true" />
+              Get in touch
             </a>
           </div>
-        </div>
 
-        <div className="hidden lg:flex justify-center items-center">
-          <div className="relative">
-            <div className="w-80 h-80 bg-accent border-8 border-black flex items-center justify-center brutalist-shadow rotate-3 hover:rotate-0 transition-transform z-10 relative">
-              <span className="text-[12rem] leading-none font-black text-white mix-blend-difference">ML</span>
-            </div>
-            <div className="absolute -bottom-12 -right-12 bg-secondary border-8 border-black p-6 brutalist-shadow -rotate-6 z-20 hover:rotate-0 transition-transform">
-              <span className="text-4xl font-black text-black">4+ EXP</span>
+          <dl className="mt-10 grid max-w-2xl grid-cols-3 gap-3">
+            {highlights.map((item) => (
+              <div key={item.label} className="border-l border-[rgba(21,20,18,0.16)] pl-4">
+                <dt className="font-display text-2xl font-semibold">{item.value}</dt>
+                <dd className="mt-1 text-xs uppercase text-[var(--color-muted)]">{item.label}</dd>
+              </div>
+            ))}
+          </dl>
+        </motion.div>
+
+        <motion.div
+          className="relative mx-auto w-full max-w-[560px] lg:mr-0"
+          initial={{ opacity: 0, y: 22 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="absolute -inset-5 rounded-[8px] bg-[radial-gradient(circle_at_24%_18%,rgba(180,91,58,0.22),transparent_30%),radial-gradient(circle_at_86%_22%,rgba(82,121,102,0.24),transparent_32%),radial-gradient(circle_at_50%_100%,rgba(197,164,90,0.2),transparent_34%)] blur-2xl" aria-hidden="true" />
+          <div className="surface relative overflow-hidden p-3 shadow-[0_28px_90px_rgba(65,83,70,0.2),0_12px_34px_rgba(21,20,18,0.1)] md:p-4">
+            <div className="grid gap-3 sm:grid-cols-[0.78fr_1fr] lg:grid-cols-1 xl:grid-cols-[0.82fr_1fr]">
+              <div className="hero-portrait-frame">
+                <img
+                  className="hero-portrait"
+                  src="/my_photo.jfif"
+                  alt="Portrait of Marcin Lisiak"
+                />
+              </div>
+
+              <div className="flex min-h-full flex-col justify-between rounded-[8px] bg-[var(--color-ink)] p-5 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]">
+                <div>
+                  <div className="mb-5 inline-flex items-center gap-2 rounded-[999px] bg-white/10 px-3 py-1.5 text-sm font-semibold text-[var(--color-gold)]">
+                    <Sparkles className="h-4 w-4" aria-hidden="true" />
+                    Product-minded frontend
+                  </div>
+                  <p className="font-display text-2xl font-semibold leading-[1.14] md:text-3xl">
+                    Clear UI, fast iteration, measurable product value.
+                  </p>
+                </div>
+                <p className="mt-6 text-sm leading-[1.7] text-white/70">
+                  React, TypeScript, e-commerce experience, and AI-supported delivery in one practical workflow.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-
+        </motion.div>
       </div>
     </section>
   );

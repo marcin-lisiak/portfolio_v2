@@ -1,47 +1,60 @@
-import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
-import { EtherealShadow } from './components/ui/etheral-shadow';
+
+const principles = [
+  {
+    title: 'Interface craft',
+    body: 'React and TypeScript interfaces with clear structure, responsive behavior, and reliable details.',
+  },
+  {
+    title: 'Commercial context',
+    body: 'Marketing and e-commerce experience translated into user flows, launches, and market-ready communication.',
+  },
+  {
+    title: 'Graphic design range',
+    body: 'Flyers, promotional materials, product graphics, photo/video assets, and brand-facing layouts.',
+  },
+  {
+    title: 'AI-assisted delivery',
+    body: 'AI tools for research, iteration, automation, and code support with human product judgment.',
+  },
+];
 
 function App() {
   return (
-    <div className="relative min-h-screen bg-background text-foreground selection:bg-accent selection:text-white font-sans overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden bg-[var(--color-paper)] text-[var(--color-ink)] selection:bg-[var(--color-ember)] selection:text-white">
+      <div className="site-noise" aria-hidden="true" />
+      <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_12%_8%,rgba(180,91,58,0.15),transparent_30%),radial-gradient(circle_at_88%_10%,rgba(82,121,102,0.18),transparent_28%),radial-gradient(circle_at_70%_88%,rgba(197,164,90,0.16),transparent_30%)]" />
 
-      {/* Background Layer */}
-      <div className="fixed inset-0 z-0 pointer-events-none opacity-60">
-        <EtherealShadow
-          color="rgba(255, 51, 51, 0.8)"
-          animation={{ scale: 50, speed: 50 }}
-          noise={{ opacity: 0.2, scale: 1.0 }}
-          sizing="fill"
-        />
-        {/* Subtle Overlay */}
-        <div className="absolute inset-0 bg-background/20"></div>
-      </div>
-
-      {/* Content Layer */}
-      <div className="relative z-10">
-        <Navbar />
+      <Navbar />
+      <main>
         <Hero />
 
-        {/* About Section */}
-        <section id="about" className="py-32 container mx-auto px-6">
-          <div className="max-w-5xl border-8 border-black p-12 bg-white brutalist-shadow">
-            <p className="inline-block bg-accent text-white px-4 py-1 font-mono text-sm mb-6 uppercase border-2 border-black">
-               // O mnie
-            </p>
-            <h2 className="text-5xl md:text-8xl font-black mb-10 tracking-tighter leading-none uppercase">
-              Łączę <span className="text-primary">kod</span> i <span className="text-accent italic">biznes</span>.
-            </h2>
-            <div className="grid md:grid-cols-2 gap-12 text-xl font-bold leading-tight uppercase">
-              <p className="border-l-8 border-primary pl-6">
-                Hej! Mam na imię Marcin.<br></br>ROZWIJAM SIĘ JAKO FRONTEND DEVELOPER. ZNAM REACT I TYPESCRIPT W PRAKTYCE, PRACUJĘ Z AI JAKO CODZIENNYM NARZĘDZIEM I WCIĄŻ POSZERZAM WARSZTAT.
+        <section id="about" className="section-shell">
+          <div className="mx-auto grid max-w-7xl gap-10 px-5 md:grid-cols-[0.9fr_1.1fr] md:px-8">
+            <div>
+              <p className="eyebrow">About</p>
+              <h2 className="section-title">
+                I connect frontend execution with business intent.
+              </h2>
+            </div>
+            <div className="space-y-6 text-base leading-[1.7] text-[var(--color-muted)] md:text-lg">
+              <p>
+                I am Marcin Lisiak, a frontend developer and project manager building a portfolio around React, TypeScript, e-commerce, and AI-enabled workflows.
               </p>
-              <p className="border-l-8 border-accent pl-6">
-                Moje doświadczenie w marketingu i e-commerce pozwala mi patrzeć na projekty nie tylko przez pryzmat kodu, ale przede wszystkim potrzeb użytkownika i celów biznesowych.
+              <p>
+                My background is practical: I have worked close to marketing, sales, product presentation, and operational websites. That makes my default question simple: what should this interface help the user do next?
               </p>
+              <div className="grid gap-4 sm:grid-cols-2">
+                {principles.map((item) => (
+                  <article key={item.title} className="surface p-5">
+                    <h3 className="mb-3 font-display text-xl font-semibold">{item.title}</h3>
+                    <p className="text-sm leading-[1.7] text-[var(--color-muted)]">{item.body}</p>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -49,33 +62,37 @@ function App() {
         <Skills />
         <Projects />
 
-        {/* Contact Section */}
-        <section id="contact" className="py-32 container mx-auto px-6 text-center">
-          <div className="bg-secondary border-8 border-black p-20 brutalist-shadow relative overflow-hidden">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/20 blur-[150px] pointer-events-none"></div>
-
-            <p className="inline-block bg-black text-white px-4 py-1 font-mono text-sm mb-8 uppercase tracking-widest">
-              // Get In Touch
-            </p>
-            <h2 className="text-6xl md:text-9xl font-black mb-10 tracking-tighter leading-none uppercase">
-              Zróbmy coś <span className="text-accent italic">wielkiego</span>.
-            </h2>
-            <p className="text-black text-2xl font-black max-w-3xl mx-auto mb-12 uppercase leading-none">
-              Szukasz developera, który rozumie biznes, lub managera, który zna technologię? Napisz do mnie.
-            </p>
-            <a href="mailto:marcin@lisiak.pl" className="inline-block px-16 py-6 bg-primary text-white border-4 border-black font-black text-3xl uppercase tracking-wider hover:translate-x-[-8px] hover:translate-y-[-8px] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-              Wyślij Email
-            </a>
+        <section id="contact" className="section-shell pb-16">
+          <div className="mx-auto max-w-7xl px-5 md:px-8">
+            <div className="relative overflow-hidden rounded-[8px] bg-[var(--color-ink)] px-6 py-12 text-white shadow-[0_28px_80px_rgba(21,20,18,0.22)] md:px-12 md:py-16">
+              <div className="absolute inset-0 opacity-60 mix-blend-multiply bg-[radial-gradient(circle_at_20%_20%,rgba(180,91,58,0.75),transparent_28%),radial-gradient(circle_at_82%_18%,rgba(82,121,102,0.75),transparent_26%),radial-gradient(circle_at_50%_110%,rgba(197,164,90,0.55),transparent_34%)]" aria-hidden="true" />
+              <div className="relative grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+                <div>
+                  <p className="eyebrow text-[var(--color-gold)]">Contact</p>
+                  <h2 className="max-w-3xl font-display text-4xl font-semibold leading-[1.08] md:text-6xl">
+                    Need a frontend partner who understands the product conversation?
+                  </h2>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  <a className="button button-light" href="mailto:marcin@lisiak.pl">
+                    Email me
+                  </a>
+                  <a className="button button-ghost-dark" href="https://www.linkedin.com/in/marcin-lisiak-570691199/" target="_blank" rel="noopener noreferrer">
+                    LinkedIn
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
-      </div>
+      </main>
 
-      <footer className="relative z-10 py-16 border-t-8 border-black bg-black text-white font-mono text-sm uppercase">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-          <p className="font-bold">© 2026 Marcin Lisiak.</p>
-          <div className="flex gap-12 font-black">
-            <a href="#" className="hover:text-secondary transition-colors underline decoration-4 underline-offset-8">GitHub</a>
-            <a href="#" className="hover:text-accent transition-colors underline decoration-4 underline-offset-8">LinkedIn</a>
+      <footer className="border-t border-[rgba(21,20,18,0.12)] py-8">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 text-sm text-[var(--color-muted)] md:flex-row md:items-center md:justify-between md:px-8">
+          <p>2026 Marcin Lisiak. Frontend, product websites, and e-commerce interfaces.</p>
+          <div className="flex gap-5">
+            <a className="nav-link" href="https://github.com/marcin-lisiak" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a className="nav-link" href="https://www.linkedin.com/in/marcin-lisiak-570691199/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
         </div>
       </footer>

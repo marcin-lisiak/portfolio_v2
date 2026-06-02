@@ -1,86 +1,78 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { Menu, X } from 'lucide-react';
+
+const navLinks = [
+  { name: 'About', href: '#about' },
+  { name: 'Skills', href: '#skills' },
+  { name: 'Projects', href: '#projects' },
+];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 24);
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'O mnie', href: '#about' },
-    { name: 'Skille', href: '#skills' },
-    { name: 'Projekty', href: '#projects' },
-  ];
-
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-200 border-b-4 border-black ${isScrolled ? 'bg-white py-2' : 'bg-white py-6'
-        }`}
+      className={`fixed left-0 right-0 top-0 z-50 transition-[background-color,box-shadow,transform,opacity] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+        isScrolled
+          ? 'bg-[rgba(246,241,232,0.88)] shadow-[0_16px_46px_rgba(21,20,18,0.08)] backdrop-blur-xl'
+          : 'bg-transparent'
+      }`}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
-        <a href="#hero" className="text-3xl font-black tracking-tighter text-black uppercase border-4 border-black px-4 py-1 bg-secondary brutalist-shadow hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
-          Marcin.
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
+        <a href="#hero" className="group flex items-center gap-3 rounded-[8px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-ember)]">
+          <span className="flex h-10 w-10 items-center justify-center rounded-[8px] bg-[var(--color-ink)] font-display text-lg font-semibold text-white shadow-[0_12px_28px_rgba(21,20,18,0.16)] transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-0.5 group-active:translate-y-0">
+            ML
+          </span>
+          <span className="font-display text-lg font-semibold">Marcin Lisiak</span>
         </a>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden items-center gap-7 md:flex">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="px-4 py-2 text-sm font-black uppercase tracking-tight text-black hover:bg-accent hover:text-white transition-colors"
-            >
+            <a key={link.name} href={link.href} className="nav-link">
               {link.name}
             </a>
           ))}
-          <a href="#contact" className="ml-4 px-6 py-2 bg-primary text-white border-2 border-black font-black uppercase text-sm brutalist-shadow hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all">
-            Kontakt
+          <a href="#contact" className="button button-small">
+            Contact
           </a>
         </div>
 
-        {/* Mobile Hamburger */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2 border-4 border-black bg-white"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          type="button"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-[8px] border border-[rgba(21,20,18,0.14)] bg-white/70 shadow-[0_12px_26px_rgba(21,20,18,0.08)] transition-[transform,opacity,background-color] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-ember)] active:translate-y-0 md:hidden"
+          aria-label={isMenuOpen ? 'Close navigation' : 'Open navigation'}
+          aria-expanded={isMenuOpen}
+          onClick={() => setIsMenuOpen((open) => !open)}
         >
-          <span className="w-6 h-1 bg-black"></span>
-          <span className="w-6 h-1 bg-black"></span>
-          <span className="w-6 h-1 bg-black"></span>
+          {isMenuOpen ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-white z-[99] flex flex-col items-center justify-center gap-8 md:hidden border-8 border-black">
-          <button
-            className="absolute top-10 right-10 text-4xl font-black"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            X
-          </button>
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setIsMenuOpen(false)}
-              className="text-4xl font-black uppercase text-black hover:text-primary transition-colors"
-            >
-              {link.name}
+        <div className="border-t border-[rgba(21,20,18,0.1)] bg-[rgba(246,241,232,0.96)] px-5 py-4 shadow-[0_18px_42px_rgba(21,20,18,0.1)] backdrop-blur-xl md:hidden">
+          <div className="mx-auto flex max-w-7xl flex-col gap-2">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="rounded-[8px] px-3 py-3 font-medium text-[var(--color-ink)] transition-[background-color,transform,opacity] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-ember)] active:translate-y-0"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.name}
+              </a>
+            ))}
+            <a className="button button-primary mt-2 justify-center" href="#contact" onClick={() => setIsMenuOpen(false)}>
+              Contact
             </a>
-          ))}
-          <a
-            href="#contact"
-            onClick={() => setIsMenuOpen(false)}
-            className="px-10 py-4 bg-primary text-white border-4 border-black text-2xl font-black uppercase"
-          >
-            Kontakt
-          </a>
+          </div>
         </div>
       )}
     </nav>
