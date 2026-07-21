@@ -34,11 +34,10 @@ const Navbar = () => {
     >
       <span className="scroll-progress" style={{ transform: `scaleX(${scrollProgress})` }} aria-hidden="true" />
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
-        <a href="#hero" className="group flex items-center gap-3 rounded-[8px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-ember)]">
-          <span className="flex h-10 w-10 items-center justify-center rounded-[8px] bg-[var(--color-ink)] font-display text-lg font-semibold text-white shadow-[0_12px_28px_rgba(21,20,18,0.16)] transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-0.5 group-active:translate-y-0">
-            ML
+        <a href="#hero" aria-label="Marcin Lisiak — back to top" className="group flex items-center rounded-[8px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-ember)]">
+          <span className="nav-brand-mark" aria-hidden="true">
+            <img src="/ml-logo-clear.png" alt="" />
           </span>
-          <span className="font-display text-lg font-semibold">Marcin Lisiak</span>
         </a>
 
         <div className="hidden items-center gap-6 lg:flex">

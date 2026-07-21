@@ -66,7 +66,6 @@ const Hero = () => {
             <div className="portrait-cutout">
               <img src="/my_photo.png" alt="Marcin Lisiak, frontend developer and project manager" />
             </div>
-            <div className="portrait-role">Frontend Developer <span>+</span> Project Manager</div>
           </div>
         </div>
       </div>
