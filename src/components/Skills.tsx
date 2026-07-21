@@ -1,73 +1,51 @@
-import { Bot, Brush, Code2, Images, Megaphone, PackageOpen, PenTool, Route, Store, TerminalSquare, Video, Workflow } from 'lucide-react';
+import { Bot, Braces, Brush, KanbanSquare, ShoppingBag, Sparkles, Workflow } from 'lucide-react';
 
-const skills = [
-  {
-    group: 'Frontend',
-    items: [
-      { name: 'React / Next.js', icon: Code2 },
-      { name: 'TypeScript', icon: TerminalSquare },
-      { name: 'Tailwind CSS', icon: Brush },
-    ],
-  },
-  {
-    group: 'Product context',
-    items: [
-      { name: 'E-commerce', icon: Store },
-      { name: 'Marketing flows', icon: Megaphone },
-      { name: 'New product launches', icon: PackageOpen },
-      { name: 'Project management', icon: Route },
-    ],
-  },
-  {
-    group: 'Visual design',
-    items: [
-      { name: 'Graphic design', icon: PenTool },
-      { name: 'Flyers and print layouts', icon: Brush },
-      { name: 'Photo assets', icon: Images },
-      { name: 'Video materials', icon: Video },
-      { name: 'Product visuals', icon: PackageOpen },
-    ],
-  },
-  {
-    group: 'Acceleration',
-    items: [
-      { name: 'AI tools', icon: Bot },
-      { name: 'Automation mindset', icon: Workflow },
-    ],
-  },
+const capabilities = [
+  { title: 'Frontend', note: 'From classic websites to web apps', icon: Braces, items: ['HTML & CSS', 'JavaScript', 'React', 'Next.js', 'TypeScript', 'Tailwind CSS'] },
+  { title: 'Coordination', note: 'Practical small-team delivery', icon: KanbanSquare, items: ['Project management', 'Scoping', 'Communication', 'Prioritisation'] },
+  { title: 'Business', note: 'Context behind the interface', icon: ShoppingBag, items: ['E-commerce', 'Sales workflows', 'Internal tools', 'B2B content'] },
+  { title: 'Visual', note: 'A useful supporting foundation', icon: Brush, items: ['UI direction', 'Graphic design', 'Responsive layouts', 'Product visuals'] },
 ];
 
 const Skills = () => {
   return (
-    <section id="skills" className="section-shell bg-[rgba(255,255,255,0.36)]">
+    <section id="skills" className="section-shell skills-section">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
-        <div className="mb-10 max-w-3xl">
-          <p className="eyebrow">Skills</p>
-          <h2 className="section-title">A practical stack for polished, shippable interfaces.</h2>
+        <div className="reveal grid gap-7 md:grid-cols-[1fr_0.75fr] md:items-end">
+          <div>
+            <p className="eyebrow">Capabilities / the working stack</p>
+            <h2 className="section-title">Frontend first.<br />Project context included.</h2>
+          </div>
+          <p className="max-w-lg text-lg leading-[1.75] text-[var(--color-muted)] md:pb-2">
+            Frontend is my strongest hands-on direction: from polished HTML, CSS and JavaScript websites to React and TypeScript tools, supported by practical project and B2B experience.
+          </p>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {skills.map((group) => (
-            <section key={group.group} className="surface p-5">
-              <h3 className="mb-5 font-display text-2xl font-semibold">{group.group}</h3>
-              <div className="grid gap-3">
-                {group.items.map((skill) => {
-                  const Icon = skill.icon;
-                  return (
-                    <div
-                      key={skill.name}
-                      className="flex min-h-16 items-center gap-4 rounded-[8px] border border-[rgba(21,20,18,0.1)] bg-white/58 p-4 transition-[transform,opacity,background-color,border-color] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-[rgba(180,91,58,0.35)] hover:bg-white"
-                    >
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[8px] bg-[var(--color-sage)] text-white shadow-[0_10px_24px_rgba(82,121,102,0.22)]">
-                        <Icon className="h-5 w-5" aria-hidden="true" />
-                      </span>
-                      <span className="font-medium">{skill.name}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            </section>
-          ))}
+        <div className="stagger-grid mt-12 grid border-l border-t border-[var(--color-line)] sm:grid-cols-2 xl:grid-cols-4">
+          {capabilities.map((capability) => {
+            const Icon = capability.icon;
+            return (
+              <article key={capability.title} className="capability-card group">
+                <div className="mb-8 flex items-start justify-between">
+                  <div className="capability-icon"><Icon className="h-5 w-5" /></div>
+                  <Sparkles className="h-4 w-4 text-[var(--color-gold)] opacity-0 transition-opacity group-hover:opacity-100" />
+                </div>
+                <h3>{capability.title}</h3>
+                <p>{capability.note}</p>
+                <ul>
+                  {capability.items.map((item) => <li key={item}>{item}</li>)}
+                </ul>
+              </article>
+            );
+          })}
+        </div>
+
+        <div className="reveal mt-5 flex flex-col gap-4 rounded-[5px] border border-[var(--color-line)] bg-white/45 p-5 backdrop-blur md:flex-row md:items-center md:justify-between">
+          <div className="flex items-center gap-3">
+            <span className="capability-icon bg-[var(--color-ink)] text-white"><Bot className="h-5 w-5" /></span>
+            <p><strong>AI-assisted delivery</strong><span className="ml-2 text-sm text-[var(--color-muted)]">for faster research, iteration and automation — always with human judgment.</span></p>
+          </div>
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-sage)]"><Workflow className="h-4 w-4" /> Daily workflow</div>
         </div>
       </div>
     </section>

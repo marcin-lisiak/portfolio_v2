@@ -1,57 +1,73 @@
+import { ArrowUpRight, Check, MoveRight } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
+import MotionDirector from './components/MotionDirector';
+import CursorSpotlight from './components/CursorSpotlight';
 
-const principles = [
-  {
-    title: 'Interface craft',
-    body: 'React and TypeScript interfaces with clear structure, responsive behavior, and reliable details.',
-  },
-  {
-    title: 'Commercial context',
-    body: 'Marketing and e-commerce experience translated into user flows, launches, and market-ready communication.',
-  },
-  {
-    title: 'Graphic design range',
-    body: 'Flyers, promotional materials, product graphics, photo/video assets, and brand-facing layouts.',
-  },
-  {
-    title: 'AI-assisted delivery',
-    body: 'AI tools for research, iteration, automation, and code support with human product judgment.',
-  },
+const strengths = [
+  ['01', 'Frontend craft', 'Responsive websites and interfaces built with HTML, CSS, JavaScript, React and TypeScript.'],
+  ['02', 'Project coordination', 'Clear priorities, communication and next steps in small, practical project teams.'],
+  ['03', 'Business context', 'Experience with sales, warehouse, B2B and e-commerce processes behind the interface.'],
+  ['04', 'Hands-on delivery', 'For every project shown here, I handled the frontend and visual implementation.'],
 ];
+
+const workflow = [
+  ['Frame', 'Clarify the business goal, user and constraints before the UI starts growing.'],
+  ['Shape', 'Turn ambiguity into a focused scope, information architecture and visual direction.'],
+  ['Build', 'Create responsive interfaces, connect the details and keep stakeholders in the loop.'],
+  ['Ship', 'Test the experience, tighten performance and leave the product ready for its next iteration.'],
+];
+
+const tickerItems = ['Frontend development', 'Websites from scratch', 'Project coordination', 'Business tools', 'E-commerce'];
 
 function App() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-[var(--color-paper)] text-[var(--color-ink)] selection:bg-[var(--color-ember)] selection:text-white">
+      <MotionDirector />
+      <CursorSpotlight />
       <div className="site-noise" aria-hidden="true" />
-      <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_12%_8%,rgba(180,91,58,0.15),transparent_30%),radial-gradient(circle_at_88%_10%,rgba(82,121,102,0.18),transparent_28%),radial-gradient(circle_at_70%_88%,rgba(197,164,90,0.16),transparent_30%)]" />
-
       <Navbar />
+
       <main>
         <Hero />
 
-        <section id="about" className="section-shell">
-          <div className="mx-auto grid max-w-7xl gap-10 px-5 md:grid-cols-[0.9fr_1.1fr] md:px-8">
-            <div>
+        <div className="ticker" aria-hidden="true">
+          <div className="ticker-track">
+            {[0, 1].map((group) => (
+              <div className="ticker-group" key={group}>
+                {tickerItems.map((item) => (
+                  <span className="ticker-item" key={`${group}-${item}`}>
+                    <span>{item}</span><i>✦</i>
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <section id="about" className="section-shell relative overflow-hidden">
+          <div className="orbital-word" aria-hidden="true">PRODUCT / PEOPLE / DELIVERY</div>
+          <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-5 md:grid-cols-[0.78fr_1.22fr] md:px-8">
+            <div className="reveal">
               <p className="eyebrow">About</p>
-              <h2 className="section-title">
-                I connect frontend execution with business intent.
-              </h2>
+              <h2 className="section-title">Frontend grounded in real business needs.</h2>
+              <p className="mt-7 max-w-md text-lg leading-[1.75] text-[var(--color-muted)]">
+                My experience comes from building websites and internal tools used in day-to-day company work.
+              </p>
             </div>
-            <div className="space-y-6 text-base leading-[1.7] text-[var(--color-muted)] md:text-lg">
-              <p>
-                I am Marcin Lisiak, a frontend developer and project manager building a portfolio around React, TypeScript, e-commerce, and AI-enabled workflows.
+
+            <div className="reveal">
+              <p className="about-lead">
+                I deliver projects independently or in small teams. In every project shown here, I was responsible for the <em>frontend and visual execution</em>. I am now looking to grow in one focused role as a junior frontend developer or project manager.
               </p>
-              <p>
-                My background is practical: I have worked close to marketing, sales, product presentation, and operational websites. That makes my default question simple: what should this interface help the user do next?
-              </p>
-              <div className="grid gap-4 sm:grid-cols-2">
-                {principles.map((item) => (
-                  <article key={item.title} className="surface p-5">
-                    <h3 className="mb-3 font-display text-xl font-semibold">{item.title}</h3>
-                    <p className="text-sm leading-[1.7] text-[var(--color-muted)]">{item.body}</p>
+              <div className="stagger-grid mt-10 grid gap-0 border-l border-t border-[var(--color-line)] sm:grid-cols-2">
+                {strengths.map(([number, title, body]) => (
+                  <article key={title} className="strength-card">
+                    <span>{number}</span>
+                    <h3>{title}</h3>
+                    <p>{body}</p>
                   </article>
                 ))}
               </div>
@@ -62,37 +78,50 @@ function App() {
         <Skills />
         <Projects />
 
-        <section id="contact" className="section-shell pb-16">
+        <section id="process" className="section-shell bg-[var(--color-ink)] text-white">
           <div className="mx-auto max-w-7xl px-5 md:px-8">
-            <div className="relative overflow-hidden rounded-[8px] bg-[var(--color-ink)] px-6 py-12 text-white shadow-[0_28px_80px_rgba(21,20,18,0.22)] md:px-12 md:py-16">
-              <div className="absolute inset-0 opacity-60 mix-blend-multiply bg-[radial-gradient(circle_at_20%_20%,rgba(180,91,58,0.75),transparent_28%),radial-gradient(circle_at_82%_18%,rgba(82,121,102,0.75),transparent_26%),radial-gradient(circle_at_50%_110%,rgba(197,164,90,0.55),transparent_34%)]" aria-hidden="true" />
-              <div className="relative grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
-                <div>
-                  <p className="eyebrow text-[var(--color-gold)]">Contact</p>
-                  <h2 className="max-w-3xl font-display text-4xl font-semibold leading-[1.08] md:text-6xl">
-                    Need a frontend partner who understands the product conversation?
-                  </h2>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  <a className="button button-light" href="mailto:marcin@lisiak.pl">
-                    Email me
-                  </a>
-                  <a className="button button-ghost-dark" href="https://www.linkedin.com/in/marcin-lisiak-570691199/" target="_blank" rel="noopener noreferrer">
-                    LinkedIn
-                  </a>
-                </div>
+            <div className="reveal grid gap-8 md:grid-cols-[0.8fr_1.2fr]">
+              <div>
+                <p className="eyebrow text-[var(--color-gold)]">How I work</p>
+                <h2 className="section-title">From brief<br />to shipped.</h2>
+                <p className="mt-6 max-w-md leading-[1.75] text-white/58">A simple process that keeps momentum visible without turning delivery into ceremony.</p>
+              </div>
+              <ol className="stagger-grid border-t border-white/15">
+                {workflow.map(([title, body], index) => (
+                  <li key={title} className="process-row">
+                    <span>0{index + 1}</span>
+                    <h3>{title}</h3>
+                    <p>{body}</p>
+                    <Check className="h-5 w-5 text-[var(--color-gold)]" aria-hidden="true" />
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="section-shell">
+          <div className="mx-auto max-w-7xl px-5 md:px-8">
+            <div className="contact-panel reveal">
+              <div className="contact-orbit" aria-hidden="true" />
+              <p className="eyebrow">Next project / next role</p>
+              <h2>Let’s make the<br /><em>next thing useful.</em></h2>
+              <p>I’m open to frontend development and project management opportunities where initiative and clear communication matter.</p>
+              <div className="contact-actions mt-8 flex flex-wrap justify-center gap-3">
+                <a className="button button-light" href="mailto:lisiu1999@gmail.com">lisiu1999@gmail.com <MoveRight className="h-4 w-4" /></a>
+                <a className="button button-ghost-dark" href="https://www.linkedin.com/in/marcin-lisiak-570691199/" target="_blank" rel="noopener noreferrer">LinkedIn <ArrowUpRight className="h-4 w-4" /></a>
               </div>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-[rgba(21,20,18,0.12)] py-8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 text-sm text-[var(--color-muted)] md:flex-row md:items-center md:justify-between md:px-8">
-          <p>2026 Marcin Lisiak. Frontend, product websites, and e-commerce interfaces.</p>
+      <footer className="border-t border-[var(--color-line)] py-8">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 text-xs font-semibold uppercase tracking-[0.11em] text-[var(--color-muted)] md:flex-row md:items-center md:justify-between md:px-8">
+          <p>© 2026 Marcin Lisiak / Built with React, GSAP & Three.js</p>
           <div className="flex gap-5">
             <a className="nav-link" href="https://github.com/marcin-lisiak" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a className="nav-link" href="https://www.linkedin.com/in/marcin-lisiak-570691199/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a className="nav-link" href="#hero">Back to top ↑</a>
           </div>
         </div>
       </footer>
