@@ -116,12 +116,17 @@ function App() {
         </section>
       </main>
 
-      <footer className="border-t border-[var(--color-line)] py-8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 text-xs font-semibold uppercase tracking-[0.11em] text-[var(--color-muted)] md:flex-row md:items-center md:justify-between md:px-8">
-          <p>© 2026 Marcin Lisiak / Built with React, GSAP & Three.js</p>
-          <div className="flex gap-5">
-            <a className="nav-link" href="https://github.com/marcin-lisiak" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a className="nav-link" href="#hero">Back to top ↑</a>
+      <footer className="site-footer">
+        <div className="footer-shell">
+          <a className="footer-brand" href="#hero" aria-label="Marcin Lisiak — back to top">
+            <img src="/ml-logo-full.png" alt="Marcin Lisiak — Front-End Developer" />
+          </a>
+          <div className="footer-meta">
+            <p>© 2026 Marcin Lisiak / Built with React, GSAP & Three.js</p>
+            <div className="flex gap-5">
+              <a className="nav-link" href="https://github.com/marcin-lisiak" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a className="nav-link" href="#hero">Back to top ↑</a>
+            </div>
           </div>
         </div>
       </footer>

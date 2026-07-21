@@ -139,13 +139,20 @@
   .proof-strip dd { margin: .45rem 0 0; color: var(--color-muted); font-size: .63rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
   .availability-note { display: flex; align-items: center; gap: .55rem; margin-top: 1rem; color: var(--color-muted); font-size: .75rem; font-weight: 600; }
   .availability-note svg { color: var(--color-ember); }
+  .nav-brand-mark { display: grid; width: 3.55rem; height: 2.5rem; place-items: center; transition: transform .3s cubic-bezier(.22,1,.36,1); }
+  .nav-brand-mark img { display: block; width: 3.45rem; height: auto; filter: drop-shadow(0 6px 9px rgba(23,22,18,.1)); }
+  .group:hover .nav-brand-mark { transform: translateY(-2px) rotate(-2deg); }
   .hero-stage { position: relative; width: 100%; max-width: 29rem; justify-self: end; }
   .hero-stage-frame { position: relative; aspect-ratio: .9; overflow: hidden; border-radius: 48% 48% 8px 8px; background: linear-gradient(160deg, rgba(255,255,255,.38), rgba(255,255,255,.08)); }
   .portrait-backdrop { position: absolute; right: 11%; bottom: 4%; left: 11%; z-index: 2; aspect-ratio: 1; border-radius: 50%; background: linear-gradient(145deg, #c76543, #9c432b); box-shadow: 0 35px 80px rgba(176,82,52,.22); }
   .portrait-cutout { position: absolute; right: 11%; bottom: 0; left: 11%; z-index: 5; height: 91%; }
   .portrait-cutout img { position: absolute; right: 0; bottom: 0; left: 0; width: 100%; height: auto; margin: auto; filter: drop-shadow(0 18px 20px rgba(23,22,18,.18)) saturate(.92) contrast(1.03); }
-  .portrait-role { position: absolute; right: 0; bottom: 1.15rem; z-index: 7; border: 1px solid rgba(23,22,18,.1); border-radius: 999px; padding: .55rem .85rem; background: rgba(244,239,229,.92); box-shadow: 0 12px 30px rgba(23,22,18,.1); color: var(--color-muted); font-size: .58rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; backdrop-filter: blur(10px); }
-  .portrait-role span { margin: 0 .3rem; color: var(--color-ember); }
+  .site-footer { border-top: 1px solid var(--color-line); padding: 2.5rem 0; }
+  .footer-shell { display: flex; max-width: 80rem; margin: 0 auto; padding: 0 2rem; align-items: center; justify-content: space-between; gap: 3rem; }
+  .footer-brand { display: block; width: clamp(10.5rem, 15vw, 12.5rem); transition: transform .35s cubic-bezier(.22,1,.36,1); }
+  .footer-brand:hover { transform: translateY(-3px); }
+  .footer-brand img { display: block; width: 100%; height: auto; filter: drop-shadow(0 10px 16px rgba(23,22,18,.08)); }
+  .footer-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 1rem; color: var(--color-muted); font-size: .7rem; font-weight: 600; letter-spacing: .11em; text-transform: uppercase; }
   .hero-scroll { position: absolute; bottom: 1.5rem; left: 50%; z-index: 12; display: flex; transform: translateX(-50%); align-items: center; gap: .6rem; color: var(--color-muted); font-size: .62rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
   .hero-scroll svg { animation: scrollNudge 1.8s ease-in-out infinite; }
   .availability-dot {
@@ -270,11 +277,12 @@
   .process-row { grid-template-columns: 2.4rem 1fr auto; }
   .process-row p { grid-column: 2 / -1; padding-right: 1.5rem; }
   .process-row svg { grid-column: 3; grid-row: 1; }
+  .footer-shell { padding: 0 1.25rem; align-items: flex-start; flex-direction: column; gap: 2rem; }
+  .footer-meta { align-items: flex-start; }
 }
 
 @media (max-width: 430px) {
   .hero-title { font-size: clamp(3rem,13.8vw,3.7rem); }
-  .portrait-role { right: .3rem; bottom: .8rem; font-size: .52rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
